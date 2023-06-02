@@ -31,6 +31,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Remove .github
+        run: rm -rf .github
       - name: Create Indexes
         uses: Exponential-Workload/create-index-action@0.1.0
       - name: Setup Pages
