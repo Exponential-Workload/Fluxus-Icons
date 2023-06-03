@@ -33,6 +33,13 @@ jobs:
         uses: actions/checkout@v3
       - name: Remove .github
         run: rm -rf .github
+      - name: Zip
+        run: |
+          sudo apt install zip -y
+          mkdir archives
+          zip -r archives/all.zip .
+          for D in *; do [ -d "$D" ] && zip -r archives/$D.zip "$D"; done
+          rm archives/archives.zip
       - name: Create Indexes
         uses: Exponential-Workload/create-index-action@0.1.0
       - name: Setup Pages
