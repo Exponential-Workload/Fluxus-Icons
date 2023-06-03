@@ -35,8 +35,8 @@ jobs:
         run: rm -rf .github
       - name: Zip
         run: |
+          rm archives/README.md
           sudo apt install zip -y
-          mkdir archives
           zip -r archives/all.zip .
           for D in *; do [ -d "$D" ] && zip -r archives/$D.zip "$D"; done
           rm archives/archives.zip
